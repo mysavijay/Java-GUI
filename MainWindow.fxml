@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.SwingNode?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="699.0" prefWidth="1714.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+   <top>
+      <VBox>
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleRealPosGlobe" text="Select File for Position Observations (Worldwind / Charts)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleRealPosGlobes" text="Select File for Position Observations (Worldwind)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleRealPosGraph" text="Select File for Position Observation(Charts)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleClearData" text="Clear All" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleCloseRequest" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#set2DWorldWindow" text="2D window" />
+                        <MenuItem mnemonicParsing="false" onAction="#set3DWorldWindow" text="3D window" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Settings">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Internet Settings" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox>
+               <children>
+                  <ToolBar prefHeight="35.0" prefWidth="1594.0">
+                    <items>
+                      <Button mnemonicParsing="false" onAction="#set3DWorldWindow" text="3D View">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/3d%20earth-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="3D Globe View" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#set2DWorldWindow" text="2D View">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/2dmap-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="2D Globe View" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#handleLineGraph" text="Line Chart" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/Actions-office-chart-line-stacked-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Line Chart " />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#handleAreaChart" text="Area Chart" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/Actions-office-chart-area-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Area Chart" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#handleBarChart" text="Bar Chart" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/Bar-chart-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Bar Chart" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#handleScatterChart" text="Scatter Chart" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/Actions-office-chart-scatter-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Scatter Chart" />
+                           </tooltip></Button>
+                    </items>
+                  </ToolBar>
+                  <ImageView fitHeight="46.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/airbusdefenceandspace.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="0.0" prefWidth="1714.0" />
+   </bottom>
+   <center>
+      <SplitPane dividerPositions="0.3814252336448598" prefHeight="639.0" prefWidth="1714.0" BorderPane.alignment="CENTER">
+         <items>
+            <StackPane fx:id="leftMainStackPane" prefHeight="633.0" prefWidth="711.0">
+               <children>
+                  <SwingNode fx:id="swingNode3D" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="634.0" prefWidth="988.0">
+               <children>
+                  <SplitPane dividerPositions="0.5811359026369168" prefHeight="640.0" prefWidth="1040.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="631.0" prefWidth="609.0">
+                           <children>
+                              <StackPane fx:id="rightMainStackPane" prefHeight="631.0" prefWidth="623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <VBox>
+                           <children>
+                              <TitledPane collapsible="false" prefHeight="53.0" prefWidth="294.0" text="SATELLITE DATA VISUALIZATION ON GLOBE &amp; GRAPH">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TitledPane>
+                              <VBox layoutX="-42.0" prefHeight="631.0" prefWidth="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.19931856899488926" orientation="VERTICAL" prefHeight="656.0" prefWidth="251.0">
+                                      <items>
+                                          <TitledPane collapsible="false" prefHeight="153.0" prefWidth="213.0" text="Controls for Visualization" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <content>
+                                                <VBox prefHeight="96.0" prefWidth="263.0">
+                                                   <children>
+                                                      <HBox>
+                                                         <children>
+                                                            <VBox>
+                                                               <children>
+                                                                  <Slider fx:id="timeSlider" blockIncrement="1.16E-5" majorTickUnit="1.16E-5" max="1.16E-5" minorTickCount="9" prefHeight="14.0" prefWidth="446.0" snapToTicks="true" VBox.vgrow="ALWAYS" />
+                                                                  <ToolBar prefHeight="91.0" prefWidth="255.0">
+                                                                    <items>
+                                                                      <Button fx:id="startBtn" mnemonicParsing="false" onAction="#handleStartBtn">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../res/Photo-Video-Start-icon.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <tooltip>
+                                                                              <Tooltip text="Start Visualization" />
+                                                                           </tooltip>
+                                                                        </Button>
+                                                                        <Button fx:id="backwardBtn" mnemonicParsing="false" onAction="#handleBackwardBtn">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../res/Media-Controls-Rewind-icon.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <tooltip>
+                                                                              <Tooltip text="Rewind" />
+                                                                           </tooltip>
+                                                                        </Button>
+                                                                        <Button fx:id="stopBtn" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleStopBtn">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../res/LH1-Pause-icon.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <tooltip>
+                                                                              <Tooltip text="Pause Visualization" />
+                                                                           </tooltip>
+                                                                        </Button>
+                                                                        <Button fx:id="forwardBtn" mnemonicParsing="false" onAction="#handleForwardBtn">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../res/Media-Controls-Fast-Forward-icon.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <tooltip>
+                                                                              <Tooltip text="Forward" />
+                                                                           </tooltip>
+                                                                        </Button>
+                                                                        <Button fx:id="resetBtn" layoutX="54.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleResetBtn">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../res/Reset-icon.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <tooltip>
+                                                                              <Tooltip text="Reset Visualization" />
+                                                                           </tooltip>
+                                                                        </Button>
+                                                                        <Separator orientation="VERTICAL" />
+                                                                        <Button mnemonicParsing="false" onAction="#handleClearData">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../res/Actions-edit-clear-icon.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <tooltip>
+                                                                              <Tooltip text="Clear All" />
+                                                                           </tooltip>
+                                                                        </Button>
+                                                                    </items>
+                                                                  </ToolBar>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                            </content>
+                                          </TitledPane>
+                                          <SplitPane orientation="VERTICAL" prefHeight="495.0" prefWidth="279.0">
+                                            <items>
+                                                <VBox>
+                                                   <children>
+                                                      <TitledPane collapsible="false" prefHeight="31.0" prefWidth="343.0" text="Table View for Charts and Worldwind" />
+                                                      <TabPane tabClosingPolicy="UNAVAILABLE">
+                                                        <tabs>
+                                                          <Tab text=" World wind &amp; Charts">
+                                                            <content>
+                                                                  <AnchorPane prefHeight="623.0" prefWidth="367.0">
+                                                                     <children>
+                                                                        <TableView fx:id="spookFilesTable" editable="true" prefHeight="411.0" prefWidth="408.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                          <columns>
+                                                                            <TableColumn fx:id="displayNameColumn" editable="false" maxWidth="2000.0" prefWidth="153.333251953125" text="Name" />
+                                                                            <TableColumn fx:id="spookFileColumn" editable="false" maxWidth="3000.0" prefWidth="155.666748046875" text="File path" />
+                                                                              <TableColumn fx:id="showColumn" maxWidth="500.0" prefWidth="98.0" text="Show" />
+                                                                          </columns>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                            </content>
+                                                          </Tab>
+                                                          <Tab text="World Wind">
+                                                            <content>
+                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <TableView fx:id="spookFilesTable2" editable="true" prefHeight="404.0" prefWidth="367.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                           <columns>
+                                                                              <TableColumn fx:id="displayNameColumn2" editable="false" maxWidth="2000.0" prefWidth="159.33349609375" text="Name" />
+                                                                              <TableColumn fx:id="spookFileColumn2" editable="false" maxWidth="3000.0" prefWidth="156.66650390625" text="File path" />
+                                                                              <TableColumn fx:id="showColumn2" maxWidth="500.0" prefWidth="91.0" text="Show" />
+                                                                           </columns>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                            </content>
+                                                          </Tab>
+                                                            <Tab text="Charts">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <TableView fx:id="spookFilesTable1" editable="true" prefHeight="404.0" prefWidth="367.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                           <columns>
+                                                                              <TableColumn fx:id="displayNameColumn1" editable="false" maxWidth="2000.0" prefWidth="151.333251953125" text="Name" />
+                                                                              <TableColumn fx:id="spookFileColumn1" editable="false" maxWidth="3000.0" prefWidth="169.666748046875" text="File path" />
+                                                                              <TableColumn fx:id="showColumn1" maxWidth="500.0" prefWidth="87.6666259765625" text="Show" />
+                                                                           </columns>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </Tab>
+                                                        </tabs>
+                                                      </TabPane>
+                                                   </children>
+                                                </VBox>
+                                            </items>
+                                          </SplitPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                    </items>
+                  </SplitPane>
+               </children>
+            </StackPane>
+         </items>
+      </SplitPane>
+   </center>
+</BorderPane>

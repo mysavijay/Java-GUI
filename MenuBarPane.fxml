@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuBarPaneController">
+   <children>
+      <MenuBar prefWidth="1280.0" HBox.hgrow="ALWAYS">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleObjPosFiles" text="Load Object Position File(s)" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleObsPosFiles" text="Load Observer Position File(s)" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOutputFiles" text="Load Output File(s)" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOtdfFiles" text="Load OTDF File(s)" />
+              <MenuItem mnemonicParsing="false" onAction="#handleCloseRequest" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#set2DWorldWindow" text="2D Window" />
+                  <MenuItem mnemonicParsing="false" onAction="#set3DWorldWindow" text="3D Window" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tools">
+            <items>
+              <MenuItem fx:id="movieMenuItem" mnemonicParsing="false" onAction="#handleMovieRequest" text="Record Movie" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleInternetSetup" text="Internet Settings" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</HBox>

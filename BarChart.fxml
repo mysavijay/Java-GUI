@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BarChartController">
+   <children>
+      <BarChart fx:id="barChart" animated="false" layoutX="55.0" layoutY="14.0" prefHeight="511.0" prefWidth="573.0" title="Bar Chart">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis animated="false" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label fx:id="lbl" layoutX="110.0" layoutY="507.0" lineSpacing="2.0" prefHeight="54.0" prefWidth="193.0" textFill="#e41111" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Slider blockIncrement="1.16E-5" layoutX="86.0" layoutY="567.0" max="1.16E-5" prefHeight="14.0" prefWidth="541.0" showTickMarks="true" />
+   </children>
+</AnchorPane>

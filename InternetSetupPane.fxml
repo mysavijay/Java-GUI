@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="180.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InternetSetupPaneController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Internet Setup">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="77.0" text="Host :" />
+      <Label layoutX="17.0" layoutY="116.0" text="Port :" />
+      <CheckBox fx:id="enableInternetChkBox" layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#handleEnableInternet" text="Enable Internet" />
+      <TextField fx:id="hostTxtFld" layoutX="62.0" layoutY="73.0" prefHeight="25.0" prefWidth="314.0" />
+      <TextField fx:id="portTxtFld" layoutX="62.0" layoutY="112.0" prefHeight="25.0" prefWidth="89.0" />
+      <Button layoutX="343.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleOkBtn" text="OK" />
+      <CheckBox fx:id="enableProxyChkBox" layoutX="151.0" layoutY="48.0" mnemonicParsing="false" onAction="#handleEnableProxy" text="Enable Proxy" />
+   </children>
+</AnchorPane>
